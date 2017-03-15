@@ -1,0 +1,106 @@
+{
+  "resource_uri": "https://www.eventbriteapi.com/v3/categories/103/",
+  "id": "103",
+  "name": "Music",
+  "name_localized": "Music",
+  "short_name": "Music",
+  "short_name_localized": "Music",
+  "subcategories": [
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3001/",
+      "id": "3001",
+      "name": "Alternative"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3002/",
+      "id": "3002",
+      "name": "Blues & Jazz"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3003/",
+      "id": "3003",
+      "name": "Classical"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3004/",
+      "id": "3004",
+      "name": "Country"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3005/",
+      "id": "3005",
+      "name": "Cultural"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3006/",
+      "id": "3006",
+      "name": "EDM / Electronic"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3007/",
+      "id": "3007",
+      "name": "Folk"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3008/",
+      "id": "3008",
+      "name": "Hip Hop / Rap"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3009/",
+      "id": "3009",
+      "name": "Indie"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3010/",
+      "id": "3010",
+      "name": "Latin"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3011/",
+      "id": "3011",
+      "name": "Metal"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3012/",
+      "id": "3012",
+      "name": "Opera"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3013/",
+      "id": "3013",
+      "name": "Pop"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3014/",
+      "id": "3014",
+      "name": "R&B"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3015/",
+      "id": "3015",
+      "name": "Reggae"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3016/",
+      "id": "3016",
+      "name": "Religious/Spiritual"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3017/",
+      "id": "3017",
+      "name": "Rock"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3018/",
+      "id": "3018",
+      "name": "Top 40"
+    },
+    {
+      "resource_uri": "https://www.eventbriteapi.com/v3/subcategories/3999/",
+      "id": "3999",
+      "name": "Other"
+    }
+  ],
+  "locale": "en_US"
+}
