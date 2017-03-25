@@ -2,11 +2,16 @@ const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
   require('dotenv').config();  
 }
+const locationData = require('../utilities/get-locations');
+console.log(locationData);
+
 const axios = require('axios');
+
 const pg = require('pg');
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
 
 const client = new pg.Client(connectionString);
+
 client.connect();
 
 // ---------- Create module for the above ---------------
@@ -39,5 +44,7 @@ const getLocations = (arr, num) => {
     insertLocations(event.venue)
   });
 };
+
+
 
 module.exports = getLocations;

@@ -25,8 +25,8 @@ const insertGenres = (json) => {
     .forEach((genre, index) => {
       console.log(genre);
       client.query(
-        `INSERT INTO event_genres (event_genre_id, event_genre)
-        VALUES ($1, $2)`, [Number(genre.id), genre.name],
+        `INSERT INTO event_genres (id, genre_code, event_genre)
+        VALUES ($1, $2, $3)`, [index, Number(genre.id), genre.name],
         (err) => {
           if (err) throw err;
 
@@ -49,6 +49,6 @@ const getGenres = () => {
     });
 };
 
-// insertGenres(genreData);
+insertGenres(genreData);
 
-module.exports = getGenres;
+// module.exports = getGenres;
