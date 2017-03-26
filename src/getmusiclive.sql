@@ -61,8 +61,8 @@ DROP TABLE IF EXISTS event_venues;
 CREATE TABLE event_venues (
   id serial PRIMARY KEY,
   venue_name VARCHAR(50) NULL DEFAULT NULL,
-  venue_address VARCHAR(20) NULL DEFAULT NULL,
-  venue_city VARCHAR(20) NULL DEFAULT NULL,
+  venue_address VARCHAR(50) NULL DEFAULT NULL,
+  venue_city VARCHAR(50) NULL DEFAULT NULL,
   venue_state VARCHAR(15) NULL DEFAULT NULL,
   venue_zip VARCHAR(10) NULL DEFAULT NULL,
   venue_country VARCHAR(3) NULL DEFAULT NULL,
