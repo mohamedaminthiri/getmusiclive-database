@@ -21,19 +21,19 @@ CREATE TABLE events (
   id serial PRIMARY KEY, -- Primary key for events
   event_id TEXT NULL DEFAULT NULL, -- Event Id in reference to API
   event_title VARCHAR(50) NULL DEFAULT NULL, -- Title of the event
-  event_description_long TEXT NULL DEFAULT NULL, -- Event description
-  event_description_short TEXT NULL DEFAULT NULL, -- Event description
+  event_description_long TEXT NULL DEFAULT NULL, -- Event long description
+  event_description_short TEXT NULL DEFAULT NULL, -- Event  short description
   event_genre INTEGER NULL DEFAULT NULL, -- Genre foreign key
-  event_start_timezone TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_start_time_local TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_end_timezone TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_end_time_local TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_venue INTEGER NULL DEFAULT NULL, -- Location foreign key
-  event_logo_url TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_logo_aspect_ration TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_logo_edge_color TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_url TEXT NULL DEFAULT NULL, -- Genre foreign key
-  event_peformer TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_start_timezone TEXT NULL DEFAULT NULL, -- Event start timezone
+  event_start_time_local TEXT NULL DEFAULT NULL, -- Event local start time
+  event_end_timezone TEXT NULL DEFAULT NULL, -- Event end timezone
+  event_end_time_local TEXT NULL DEFAULT NULL, -- Event local end time
+  event_venue INTEGER NULL DEFAULT NULL, -- Event venue _foreign key_
+  event_logo_url TEXT NULL DEFAULT NULL, -- Event logo url
+  event_logo_aspect_ration TEXT NULL DEFAULT NULL, -- Event logo aspect ratio
+  event_logo_edge_color TEXT NULL DEFAULT NULL, -- Event logo edge color
+  event_url TEXT NULL DEFAULT NULL, -- Event url
+  event_peformer TEXT NULL DEFAULT NULL, -- Event performer
 );
 
 -- ---
