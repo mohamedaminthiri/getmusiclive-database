@@ -19,11 +19,21 @@ DROP TABLE IF EXISTS events;
     
 CREATE TABLE events (
   id serial PRIMARY KEY, -- Primary key for events
-  event_id INTEGER NULL, -- Event Id in reference to API
-  event_title VARCHAR(20) NULL DEFAULT NULL, -- Title of the event
+  event_id TEXT NULL DEFAULT NULL, -- Event Id in reference to API
+  event_title VARCHAR(50) NULL DEFAULT NULL, -- Title of the event
+  event_description_long TEXT NULL DEFAULT NULL, -- Event description
+  event_description_short TEXT NULL DEFAULT NULL, -- Event description
   event_genre INTEGER NULL DEFAULT NULL, -- Genre foreign key
-  event_description TEXT NULL DEFAULT NULL, -- Event description
-  event_venue INTEGER NULL DEFAULT NULL -- Location foreign key
+  event_start_timezone TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_start_time_local TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_end_timezone TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_end_time_local TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_venue INTEGER NULL DEFAULT NULL, -- Location foreign key
+  event_logo_url TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_logo_aspect_ration TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_logo_edge_color TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_url TEXT NULL DEFAULT NULL, -- Genre foreign key
+  event_peformer TEXT NULL DEFAULT NULL, -- Genre foreign key
 );
 
 -- ---
