@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "formatEvents": "node src/data/eventbrite/utilities/format-events.js",
-    "insertVenues": "node src/insert/insert-venues.js",
-    "getLocations": "node src/utilities/get-locations.js",
-    "insertEvents": "node src/insert/insert-events.js"
+    "insertVenues": "node src/data/eventbrite/insert/insert-venues.js",
+    "getLocations": "node src/data/eventbrite/utilities/get-locations.js",
+    "insertEvents": "node src/data/eventbrite/insert/insert-events.js"
   },
   "keywords": [],
   "author": "",

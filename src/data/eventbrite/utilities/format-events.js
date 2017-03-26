@@ -40,7 +40,7 @@ const createGenre = (code, obj) => {
 const formatEvents = (event) => {
   return {
     id: event.id,
-    name: event.name.text.substring(0, 25),
+    name: event.name.text.substring(0, 49),
     descriptionShort: descrFormat(event.description.text),
     descriptionLong: 'Long descriptiong',
     genre: createGenre(fixGenreCode(event.subcategory_id), genreMap(genreData)),
@@ -64,6 +64,6 @@ const eventFormat = (events, collection) => {
   });
 };
 
-console.log(JSON.stringify(eventFormat(eventsData)));
+console.log(JSON.stringify(eventFormat(eventsData2)));
 
 // module.exports = eventFormat;

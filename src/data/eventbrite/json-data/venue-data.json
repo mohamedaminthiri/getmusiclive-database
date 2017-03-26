@@ -1,328 +1,394 @@
 {
   "venues": [
     {
-      "name": "Starline Social Club",
-      "street": "645 West Grand Avenue",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Fenix",
+      "street": "919 4th Street",
+      "city": "San Rafael",
+      "state": "CA",
+      "zip": "94901",
       "country": "US",
-      "longitude": "-122.27253000000002",
-      "latitude": "37.812283"
+      "longitude": "-122.52656339999999",
+      "latitude": "37.9729674"
     },
     {
-      "name": "Jack London Square (Oakland)",
-      "street": "1 Broadway ",
+      "name": "Aisle 5 Oakland",
+      "street": "3320 Grand Avenue",
       "city": "Oakland",
-      "zip": "94607",
+      "state": "CA",
+      "zip": "94610",
       "country": "US",
-      "longitude": "-122.27770299999997",
-      "latitude": "37.7946232"
-    },
-    {
-      "name": "Oakland Interstake Center",
-      "street": "4780 Lincoln Ave.",
-      "city": "Oakland",
-      "zip": "94602",
-      "country": "US",
-      "longitude": "-122.19879709999998",
-      "latitude": "37.8094383"
-    },
-    {
-      "name": "1255 26th St",
-      "street": "1255 26th Street",
-      "city": "Oakland",
-      "zip": "94607",
-      "country": "US",
-      "longitude": "-122.28529600000002",
-      "latitude": "37.819046"
-    },
-    {
-      "name": "Naming Gallery",
-      "street": "335 15th Street",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26779520000002",
-      "latitude": "37.8041237"
-    },
-    {
-      "name": "The Uptown Nightclub",
-      "street": "1928 Telegraph Avenue",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26947999999999",
-      "latitude": "37.808578"
-    },
-    {
-      "name": "B4BEL4B Gallery",
-      "street": "184 10th Street",
-      "city": "Oakland",
-      "zip": "94607",
-      "country": "US",
-      "longitude": "-122.26645489999999",
-      "latitude": "37.7992722"
-    },
-    {
-      "name": "BRIX 581",
-      "street": "581 5th st.",
-      "city": "Oakland",
-      "zip": null,
-      "country": "US",
-      "longitude": "-122.27838500000001",
-      "latitude": "37.799161"
-    },
-    {
-      "name": "New Karibbean City",
-      "street": "1408 Webster Street",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26839840000002",
-      "latitude": "37.8035448"
-    },
-    {
-      "name": "Liege Spirits Lounge",
-      "street": "481 9th Street",
-      "city": "Oakland",
-      "zip": "94607",
-      "country": "US",
-      "longitude": "-122.27422610000002",
-      "latitude": "37.8010552"
+      "longitude": "-122.24658390000002",
+      "latitude": "37.8130138"
     },
     {
       "name": "Era Art Bar & Lounge",
       "street": "19 Grand Avenue",
       "city": "Oakland",
+      "state": "CA",
       "zip": "94610",
       "country": "US",
-      "longitude": "-122.26631029999999",
-      "latitude": "37.8113179"
+      "longitude": "-122.26625130000002",
+      "latitude": "37.811299"
     },
     {
-      "name": "Parliament Event Venue",
-      "street": "811 Washington Street",
-      "city": "Oakland",
-      "zip": "94607",
+      "name": "Campos Family Vineyards",
+      "street": "3501 Byer Road",
+      "city": "Byron",
+      "state": "CA",
+      "zip": "94514",
       "country": "US",
-      "longitude": "-122.27499119999999",
-      "latitude": "37.801019"
+      "longitude": "-121.630087",
+      "latitude": "37.876674"
     },
     {
-      "name": "16th Street Station",
+      "name": "Ashkenaz",
+      "street": "1317 San Pablo Ave",
+      "city": "Berkeley",
+      "state": "CA",
+      "zip": "94702",
+      "country": "US",
+      "longitude": "-122.29551029999999",
+      "latitude": "37.8801364"
+    },
+    {
+      "name": "The EndUp",
+      "street": "401 6th Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
+      "country": "US",
+      "longitude": "-122.40377799999999",
+      "latitude": "37.77728330000001"
+    },
+    {
+      "name": "First Covenant Church",
+      "street": "4000 Redwood Road",
+      "city": "Oakland",
+      "state": "CA",
+      "zip": "94619",
+      "country": "US",
+      "longitude": "-122.18323069999997",
+      "latitude": "37.7988255"
+    },
+    {
+      "name": "The Great Star Theater",
+      "street": "636 Jackson Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94133",
+      "country": "US",
+      "longitude": "-122.40592579999998",
+      "latitude": "37.79622570000001"
+    },
+    {
+      "name": "11250 CA-1",
       "street": null,
+      "city": "Point Reyes Station",
+      "state": "CA",
+      "zip": "94956",
+      "country": "US",
+      "longitude": "-122.80693559999997",
+      "latitude": "38.0690894"
+    },
+    {
+      "name": "St. Gregory’s Episcopal Church",
+      "street": "500 De Haro Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94107",
+      "country": "US",
+      "longitude": "-122.40174660000002",
+      "latitude": "37.76325359999999"
+    },
+    {
+      "name": "St. Jerome Catholic Church",
+      "street": "308 Carmel Avenue",
+      "city": "El Cerrito",
+      "state": "CA",
+      "zip": "94530",
+      "country": "US",
+      "longitude": "-122.2904249",
+      "latitude": "37.9028642"
+    },
+    {
+      "name": "The Cigar Bar & Grill",
+      "street": "850 Montgomery Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94133",
+      "country": "US",
+      "longitude": "-122.4033862",
+      "latitude": "37.7970705"
+    },
+    {
+      "name": "Biscuits & Blues",
+      "street": "401 Mason St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94102",
+      "country": "US",
+      "longitude": "-122.41014100000001",
+      "latitude": "37.787295"
+    },
+    {
+      "name": "The Back Room",
+      "street": "1984 Bonita Avenue",
+      "city": "Berkeley",
+      "state": "CA",
+      "zip": "94704",
+      "country": "US",
+      "longitude": "-122.27208300000001",
+      "latitude": "37.87208469999999"
+    },
+    {
+      "name": "Half Moon Bay Brewing Company",
+      "street": "390 Capistrano Road",
+      "city": "Half Moon Bay",
+      "state": "CA",
+      "zip": "94019",
+      "country": "US",
+      "longitude": "-122.48556200000002",
+      "latitude": "37.504067"
+    },
+    {
+      "name": "Four Fools Winery",
+      "street": "13 Pacific Avenue",
+      "city": "Rodeo",
+      "state": "CA",
+      "zip": "94572",
+      "country": "US",
+      "longitude": "-122.27125000000001",
+      "latitude": "38.03827259999999"
+    },
+    {
+      "name": "YamaSho",
+      "street": "1161 Post Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94109",
+      "country": "US",
+      "longitude": "-122.42088799999999",
+      "latitude": "37.7865492"
+    },
+    {
+      "name": "Hotel Rex",
+      "street": "562 Sutter Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94102",
+      "country": "US",
+      "longitude": "-122.4097731",
+      "latitude": "37.78918"
+    },
+    {
+      "name": "Village Theatre & Art Gallery",
+      "street": "233 Front Street",
+      "city": "Danville",
+      "state": "CA",
+      "zip": "94526",
+      "country": "US",
+      "longitude": "-121.9975043",
+      "latitude": "37.8211599"
+    },
+    {
+      "name": "4860 LOVE",
+      "street": "4860 Shetland Avenue",
       "city": "Oakland",
-      "zip": "94607",
+      "state": "CA",
+      "zip": "94605",
       "country": "US",
-      "longitude": "-122.29715369999997",
-      "latitude": "37.8154607"
+      "longitude": "-122.121377",
+      "latitude": "37.752982"
     },
     {
-      "name": "Oakland Event Center - Crate ",
-      "street": "420 14TH ST. ",
-      "city": "OAKLAND",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.27032099999997",
-      "latitude": "37.8042683"
-    },
-    {
-      "name": "Ozumo",
-      "street": "2251 Broadway",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26698039999997",
-      "latitude": "37.8118215"
-    },
-    {
-      "name": "Vinyl Oakland",
+      "name": "Complex Oakland",
       "street": "420 14th Street",
       "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.27041359999998",
-      "latitude": "37.8042355"
-    },
-    {
-      "name": "2101 Webster Street",
-      "street": "2101 Webster Street",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26600910000002",
-      "latitude": "37.8102801"
-    },
-    {
-      "name": "Venue Oakland",
-      "street": "420 14th Street",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.27030200000001",
-      "latitude": "37.804256"
-    },
-    {
-      "name": "The Uptown Nightclub!",
-      "street": "1928 Telegraph Avenue",
-      "city": "Oakland",
-      "zip": "94612",
-      "country": "US",
-      "longitude": "-122.26947999999999",
-      "latitude": "37.808578"
-    },
-    {
-      "name": "Rickshaw Stop & Starline Social Club",
-      "street": "155 Fell Street SF CA ",
-      "city": "San Francisco & Oakland",
-      "zip": null,
-      "country": "US",
-      "longitude": "-122.42046319999997",
-      "latitude": "37.7759878"
-    },
-    {
-      "name": "Musically Minded Academy",
-      "street": "5776 Broadway",
-      "city": "Oakland",
-      "zip": "94618",
-      "country": "US",
-      "longitude": "-122.2460954",
-      "latitude": "37.843972"
-    },
-    {
-      "name": "420 14th St",
-      "street": "420 14th Street",
-      "city": "Oakland",
-      "zip": "94612",
+      "state": "CA",
+      "zip": "94609",
       "country": "US",
       "longitude": "-122.270288",
       "latitude": "37.8043209"
     },
     {
-      "name": "ORACLE Arena",
-      "street": "7000 Coliseum Way",
-      "city": "Oakland",
-      "zip": "94621",
+      "name": "The Continental Bar Lounge & Patio",
+      "street": "349 South 1st Street",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95113",
       "country": "US",
-      "longitude": "-122.20294490000003",
-      "latitude": "37.75030439999999"
+      "longitude": "-121.88675119999999",
+      "latitude": "37.3305959"
     },
     {
-      "name": "2708 98th Ave",
-      "street": "(Across from Bishop O'Dowd)",
-      "city": "Oakland",
-      "zip": "94605",
+      "name": "F8",
+      "street": "1192 Folsom Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
       "country": "US",
-      "longitude": "-122.14621929999998",
-      "latitude": "37.7554905"
+      "longitude": "-122.40999499999998",
+      "latitude": "37.775311"
     },
     {
-      "name": "Oakland Scottish Rite Center",
-      "street": "1547 Lakeside Drive",
+      "name": "Somar Bar",
+      "street": null,
       "city": "Oakland",
-      "zip": "94612",
+      "state": "CA",
+      "zip": "95612",
       "country": "US",
-      "longitude": "-122.26212079999999",
-      "latitude": "37.8030498"
+      "longitude": "-122.270307",
+      "latitude": "37.8073292"
     },
     {
-      "name": "The Cathedral of Christ the Light",
-      "street": "2121 Harrison Street",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Bar None (Pickup Location)",
+      "street": "1980 Union Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94123",
       "country": "US",
-      "longitude": "-122.26301410000002",
-      "latitude": "37.8103221"
+      "longitude": "-122.43197220000002",
+      "latitude": "37.7977078"
     },
     {
-      "name": "Stork Club",
-      "street": "2330 Telegraph Avenue",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Kamimoto String Instruments",
+      "street": "609 N. 4th St.",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95112",
       "country": "US",
-      "longitude": "-122.2684372",
-      "latitude": "37.8131276"
+      "longitude": "-121.8958897",
+      "latitude": "37.3486121"
     },
     {
-      "name": "The New Parish",
-      "street": "1743 San Pablo Avenue",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Amoeba Music",
+      "street": "1855 Haight Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94117",
       "country": "US",
-      "longitude": "-122.27260289999998",
-      "latitude": "37.8076511"
+      "longitude": "-122.45262000000002",
+      "latitude": "37.768922"
     },
     {
-      "name": "East Bay Meditation Center",
-      "street": "285 17th St",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Mountain View Public Library",
+      "street": "585 Franklin St",
+      "city": "Mountain View",
+      "state": "CA",
+      "zip": "94041",
       "country": "US",
-      "longitude": "-122.26610490000002",
-      "latitude": "37.8051317"
+      "longitude": "-122.08362740000001",
+      "latitude": "37.3903309"
     },
     {
-      "name": "Oakland Coliseum",
-      "street": "7000 Coliseum Way",
-      "city": "Oakland",
-      "zip": "94621",
+      "name": "Great American Music Hall",
+      "street": "859 O'Farrell Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94109",
       "country": "US",
-      "longitude": "-122.20054579999999",
-      "latitude": "37.7515946"
+      "longitude": "-122.41883100000001",
+      "latitude": "37.784824"
     },
     {
-      "name": "Uptown Night Club",
-      "street": "1928 Telegraph Avenue",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Bar Fluxus",
+      "street": "18 Harlan Place",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94108",
       "country": "US",
-      "longitude": "-122.26947970000003",
-      "latitude": "37.8085784"
+      "longitude": "-122.40504670000001",
+      "latitude": "37.79017820000001"
     },
     {
-      "name": "Vessel \"Bay Celebrations\"",
-      "street": "1 Broadway ",
-      "city": "Oakland",
-      "zip": "94607",
+      "name": "Old St Mary's Cathedral",
+      "street": "660 California Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94108",
       "country": "US",
-      "longitude": "-122.27770299999997",
-      "latitude": "37.7946232"
+      "longitude": "-122.4058109",
+      "latitude": "37.7928445"
     },
     {
-      "name": "Impact Hub Oakland",
-      "street": "2323 Broadway",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "Russo Music",
+      "street": "4072 24th St.",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94114",
       "country": "US",
-      "longitude": "-122.26614870000003",
-      "latitude": "37.812524"
+      "longitude": "-122.4335034",
+      "latitude": "37.7515617"
     },
     {
-      "name": "Uptown Nightclub",
-      "street": "1928 Telegraph Avenue",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "PianoFight",
+      "street": "Bar Stage",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94102",
       "country": "US",
-      "longitude": "-122.26947970000003",
-      "latitude": "37.8085784"
+      "longitude": "-122.41066519999998",
+      "latitude": "37.7839092"
     },
     {
-      "name": "Oakland Metro",
-      "street": "522 2nd Street",
-      "city": "Oakland",
-      "zip": "94607",
+      "name": "Slim's",
+      "street": "333 11th Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
       "country": "US",
-      "longitude": "-122.280035",
-      "latitude": "37.798606"
+      "longitude": "-122.4133026",
+      "latitude": "37.7715143"
     },
     {
-      "name": "Scottish Rite Center",
-      "street": "1547 Lakeside Drive",
-      "city": "Oakland",
-      "zip": "94612",
+      "name": "The Beat",
+      "street": "2560 Ninth Street",
+      "city": "Berkeley",
+      "state": "CA",
+      "zip": "94710",
       "country": "US",
-      "longitude": "-122.2622594",
-      "latitude": "37.8030252"
+      "longitude": "-122.29174180000001",
+      "latitude": "37.8592741"
+    },
+    {
+      "name": "Boom Boom Room",
+      "street": "1601 Fillmore Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94115",
+      "country": "US",
+      "longitude": "-122.4332",
+      "latitude": "37.78460740000001"
+    },
+    {
+      "name": "Little Mission Studio",
+      "street": "445 Hampshire Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94110",
+      "country": "US",
+      "longitude": "-122.40808140000001",
+      "latitude": "37.7637429"
+    },
+    {
+      "name": "Restaurant Jeanne D'Arc",
+      "street": "715 Bush Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94108",
+      "country": "US",
+      "longitude": "-122.409153",
+      "latitude": "37.79001239999999"
+    },
+    {
+      "name": "Club Rodeo",
+      "street": "610 Coleman Avenue",
+      "city": "San Jose",
+      "state": "CA",
+      "zip": "95110",
+      "country": "US",
+      "longitude": "-121.90841949999998",
+      "latitude": "37.3414041"
     }
   ]
 }

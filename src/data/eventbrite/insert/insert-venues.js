@@ -3,8 +3,7 @@ if (env === 'development') {
   require('dotenv').config();  
 }
 
-const venueData = require('../data/eventbrite/json-data/venue-data.json').venues;
-const axios = require('axios');
+const venueData = require('../json-data/venue-data.json').venues;
 const pg = require('pg');
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
 const client = new pg.Client(connectionString);
@@ -17,7 +16,7 @@ const insertVenues = venues => {
   venues
     .forEach((venue, index) => {
       const { name, street, city, state, zip, country, latitude, longitude } = venue;
-      
+      console.log('Venue name: ', name);
       client.query(
         `INSERT INTO event_venues (
           id, venue_name, venue_address, venue_city, venue_state, venue_zip, 
@@ -32,17 +31,19 @@ const insertVenues = venues => {
 
         }            
       );
+      
+      client.on('end', (err, result) => {
+        if (err) console.log(err);
+
+        console.log('Query results: ', result);
+        client.end();
+      });
     });
 
-  client.on('end', (err, result) => {
-    if (err) console.log(err);
-
-    console.log('Query results: ', result);
-    client.end();
-  });
+  
 };
 
-// insertVenues(venueData);
+insertVenues(venueData);
 
 module.exports = insertVenues;
 

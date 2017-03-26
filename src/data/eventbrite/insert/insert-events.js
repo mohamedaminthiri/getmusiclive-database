@@ -6,7 +6,7 @@ const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/
 const client = new pg.Client(connectionString);
 client.connect();
 
-events.forEach((eb_event, index) => {
+events2.forEach((eb_event, index) => {
   // console.log(event.subcategory_id);
   // let genre = event.subcategory_id;
   // let location = event.venue.address.city;
@@ -24,12 +24,12 @@ events.forEach((eb_event, index) => {
       if (err) throw err;
       
       const genreId = result1.rows[0].id;
-
+      console.log('Venue name: ', venueName);
       client.query(`SELECT id FROM event_venues WHERE venue_name = $1`, [venueName], 
         (err, result2) => {
           if (err) throw err;
-          
-          const venueId = !result2.rows ? 0 : result2.rows[0].id;
+          // console.log('Venue rows: ', result2);
+          const venueId = !result2.rows || !result2.rows[0] ? 0 : result2.rows[0].id;
 
           client.query(
             
@@ -64,7 +64,4 @@ client.on('end', (err, result) => {
   client.end();
 });
 
-// console.log(test);
 
-
-// const testEvents = () => console.lin
