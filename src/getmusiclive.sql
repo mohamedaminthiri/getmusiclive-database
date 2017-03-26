@@ -33,7 +33,7 @@ CREATE TABLE events (
   event_logo_aspect_ration TEXT NULL DEFAULT NULL, -- Event logo aspect ratio
   event_logo_edge_color TEXT NULL DEFAULT NULL, -- Event logo edge color
   event_url TEXT NULL DEFAULT NULL, -- Event url
-  event_peformer TEXT NULL DEFAULT NULL, -- Event performer
+  event_peformer TEXT NULL DEFAULT NULL -- Event performer
 );
 
 -- ---

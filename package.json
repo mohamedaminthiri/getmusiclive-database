@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dataFormat": "node src/data/eventbrite/utilities/data-format.js",
     "insertVenues": "node src/insert/insert-venues.js",
-    "getLocations": "node src/utilities/get-locations.js"    
+    "getLocations": "node src/utilities/get-locations.js",
+    "insertEvents": "node src/insert/insert-events.js"
   },
   "keywords": [],
   "author": "",
