@@ -8,13 +8,16 @@
     "formatEvents": "node src/data/eventbrite/utilities/format-events.js",
     "insertVenues": "node src/data/eventbrite/insert/insert-venues.js",
     "getLocations": "node src/data/eventbrite/utilities/get-locations.js",
-    "insertEvents": "node src/data/eventbrite/insert/insert-events.js"
+    "insertEvents": "node src/data/eventbrite/insert/insert-events.js",
+    "serve": "node server/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "pg": "^6.1.4"
   },
   "devDependencies": {
