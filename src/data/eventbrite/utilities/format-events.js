@@ -3,6 +3,7 @@
 // Local genres file
 const genreData = require('../json-data/eb-genres.json').subcategories;
 const eventsData = require('../json-data/eb-events.json').events;
+const eventsData2 = require('../json-data/eb-events-2-raw.json').events;
 
 // Create a short description
 const descrFormat = (descr) => {
@@ -65,4 +66,4 @@ const eventFormat = (events, collection) => {
 
 console.log(JSON.stringify(eventFormat(eventsData)));
 
-module.exports = eventFormat;
+// module.exports = eventFormat;

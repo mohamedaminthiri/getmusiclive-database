@@ -1,4 +1,5 @@
-const events = require('../data/eventbrite/json-data/eb-events.json').events;
+const events = require('../json-data/eb-events.json').events;
+const events2Raw = require('../json-data/eb-events-2-raw.json').events;
 
 const locations = events.map(({ venue }) => venue);
 const getVenueSet = locations => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dataFormat": "node src/data/eventbrite/utilities/data-format.js",
+    "formatEvents": "node src/data/eventbrite/utilities/format-events.js",
     "insertVenues": "node src/insert/insert-venues.js",
     "getLocations": "node src/utilities/get-locations.js",
     "insertEvents": "node src/insert/insert-events.js"
