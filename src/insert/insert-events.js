@@ -15,6 +15,7 @@ const event = events[0];
 // }
 
 events.forEach(event => {
+  const { name: { text } } = event;
   let genreCode = event.subcategory_id;
 
   genres.forEach(genre => {

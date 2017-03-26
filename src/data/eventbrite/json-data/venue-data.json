@@ -1,0 +1,328 @@
+{
+  "venues": [
+    {
+      "name": "Starline Social Club",
+      "street": "645 West Grand Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.27253000000002",
+      "latitude": "37.812283"
+    },
+    {
+      "name": "Jack London Square (Oakland)",
+      "street": "1 Broadway ",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.27770299999997",
+      "latitude": "37.7946232"
+    },
+    {
+      "name": "Oakland Interstake Center",
+      "street": "4780 Lincoln Ave.",
+      "city": "Oakland",
+      "zip": "94602",
+      "country": "US",
+      "longitude": "-122.19879709999998",
+      "latitude": "37.8094383"
+    },
+    {
+      "name": "1255 26th St",
+      "street": "1255 26th Street",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.28529600000002",
+      "latitude": "37.819046"
+    },
+    {
+      "name": "Naming Gallery",
+      "street": "335 15th Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26779520000002",
+      "latitude": "37.8041237"
+    },
+    {
+      "name": "The Uptown Nightclub",
+      "street": "1928 Telegraph Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26947999999999",
+      "latitude": "37.808578"
+    },
+    {
+      "name": "B4BEL4B Gallery",
+      "street": "184 10th Street",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.26645489999999",
+      "latitude": "37.7992722"
+    },
+    {
+      "name": "BRIX 581",
+      "street": "581 5th st.",
+      "city": "Oakland",
+      "zip": null,
+      "country": "US",
+      "longitude": "-122.27838500000001",
+      "latitude": "37.799161"
+    },
+    {
+      "name": "New Karibbean City",
+      "street": "1408 Webster Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26839840000002",
+      "latitude": "37.8035448"
+    },
+    {
+      "name": "Liege Spirits Lounge",
+      "street": "481 9th Street",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.27422610000002",
+      "latitude": "37.8010552"
+    },
+    {
+      "name": "Era Art Bar & Lounge",
+      "street": "19 Grand Avenue",
+      "city": "Oakland",
+      "zip": "94610",
+      "country": "US",
+      "longitude": "-122.26631029999999",
+      "latitude": "37.8113179"
+    },
+    {
+      "name": "Parliament Event Venue",
+      "street": "811 Washington Street",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.27499119999999",
+      "latitude": "37.801019"
+    },
+    {
+      "name": "16th Street Station",
+      "street": null,
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.29715369999997",
+      "latitude": "37.8154607"
+    },
+    {
+      "name": "Oakland Event Center - Crate ",
+      "street": "420 14TH ST. ",
+      "city": "OAKLAND",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.27032099999997",
+      "latitude": "37.8042683"
+    },
+    {
+      "name": "Ozumo",
+      "street": "2251 Broadway",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26698039999997",
+      "latitude": "37.8118215"
+    },
+    {
+      "name": "Vinyl Oakland",
+      "street": "420 14th Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.27041359999998",
+      "latitude": "37.8042355"
+    },
+    {
+      "name": "2101 Webster Street",
+      "street": "2101 Webster Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26600910000002",
+      "latitude": "37.8102801"
+    },
+    {
+      "name": "Venue Oakland",
+      "street": "420 14th Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.27030200000001",
+      "latitude": "37.804256"
+    },
+    {
+      "name": "The Uptown Nightclub!",
+      "street": "1928 Telegraph Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26947999999999",
+      "latitude": "37.808578"
+    },
+    {
+      "name": "Rickshaw Stop & Starline Social Club",
+      "street": "155 Fell Street SF CA ",
+      "city": "San Francisco & Oakland",
+      "zip": null,
+      "country": "US",
+      "longitude": "-122.42046319999997",
+      "latitude": "37.7759878"
+    },
+    {
+      "name": "Musically Minded Academy",
+      "street": "5776 Broadway",
+      "city": "Oakland",
+      "zip": "94618",
+      "country": "US",
+      "longitude": "-122.2460954",
+      "latitude": "37.843972"
+    },
+    {
+      "name": "420 14th St",
+      "street": "420 14th Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.270288",
+      "latitude": "37.8043209"
+    },
+    {
+      "name": "ORACLE Arena",
+      "street": "7000 Coliseum Way",
+      "city": "Oakland",
+      "zip": "94621",
+      "country": "US",
+      "longitude": "-122.20294490000003",
+      "latitude": "37.75030439999999"
+    },
+    {
+      "name": "2708 98th Ave",
+      "street": "(Across from Bishop O'Dowd)",
+      "city": "Oakland",
+      "zip": "94605",
+      "country": "US",
+      "longitude": "-122.14621929999998",
+      "latitude": "37.7554905"
+    },
+    {
+      "name": "Oakland Scottish Rite Center",
+      "street": "1547 Lakeside Drive",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26212079999999",
+      "latitude": "37.8030498"
+    },
+    {
+      "name": "The Cathedral of Christ the Light",
+      "street": "2121 Harrison Street",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26301410000002",
+      "latitude": "37.8103221"
+    },
+    {
+      "name": "Stork Club",
+      "street": "2330 Telegraph Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.2684372",
+      "latitude": "37.8131276"
+    },
+    {
+      "name": "The New Parish",
+      "street": "1743 San Pablo Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.27260289999998",
+      "latitude": "37.8076511"
+    },
+    {
+      "name": "East Bay Meditation Center",
+      "street": "285 17th St",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26610490000002",
+      "latitude": "37.8051317"
+    },
+    {
+      "name": "Oakland Coliseum",
+      "street": "7000 Coliseum Way",
+      "city": "Oakland",
+      "zip": "94621",
+      "country": "US",
+      "longitude": "-122.20054579999999",
+      "latitude": "37.7515946"
+    },
+    {
+      "name": "Uptown Night Club",
+      "street": "1928 Telegraph Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26947970000003",
+      "latitude": "37.8085784"
+    },
+    {
+      "name": "Vessel \"Bay Celebrations\"",
+      "street": "1 Broadway ",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.27770299999997",
+      "latitude": "37.7946232"
+    },
+    {
+      "name": "Impact Hub Oakland",
+      "street": "2323 Broadway",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26614870000003",
+      "latitude": "37.812524"
+    },
+    {
+      "name": "Uptown Nightclub",
+      "street": "1928 Telegraph Avenue",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.26947970000003",
+      "latitude": "37.8085784"
+    },
+    {
+      "name": "Oakland Metro",
+      "street": "522 2nd Street",
+      "city": "Oakland",
+      "zip": "94607",
+      "country": "US",
+      "longitude": "-122.280035",
+      "latitude": "37.798606"
+    },
+    {
+      "name": "Scottish Rite Center",
+      "street": "1547 Lakeside Drive",
+      "city": "Oakland",
+      "zip": "94612",
+      "country": "US",
+      "longitude": "-122.2622594",
+      "latitude": "37.8030252"
+    }
+  ]
+}

@@ -23,7 +23,7 @@ CREATE TABLE events (
   event_title VARCHAR(20) NULL DEFAULT NULL, -- Title of the event
   event_genre INTEGER NULL DEFAULT NULL, -- Genre foreign key
   event_description TEXT NULL DEFAULT NULL, -- Event description
-  event_location INTEGER NULL DEFAULT NULL -- Location foreign key
+  event_venue INTEGER NULL DEFAULT NULL -- Location foreign key
 );
 
 -- ---
@@ -35,6 +35,7 @@ DROP TABLE IF EXISTS event_genres;
     
 CREATE TABLE event_genres (
   id serial PRIMARY KEY,
+  genre_code INTEGER, -- code given by API,
   event_genre VARCHAR(20) NULL DEFAULT NULL -- Music genres for events
 );
 
@@ -74,7 +75,7 @@ CREATE TABLE event_venues (
 -- ---
 
 ALTER TABLE events ADD FOREIGN KEY (event_genre) REFERENCES event_genres (id); -- Sequence foreign keys for genres
-ALTER TABLE events ADD FOREIGN KEY (event_location) REFERENCES event_locations (id); -- Sequence foreign keys for locations
+ALTER TABLE events ADD FOREIGN KEY (event_venue) REFERENCES event_venues (id); -- Sequence foreign keys for locations
 
 /************************************************
 
