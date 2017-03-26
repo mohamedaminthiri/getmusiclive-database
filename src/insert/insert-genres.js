@@ -23,10 +23,12 @@ console.log(url);
 const insertGenres = (json) => {
   json.subcategories
     .forEach((genre, index) => {
-      console.log(genre);
+      const { id: genreId, name: genreName } = genre;
+      
       client.query(
         `INSERT INTO event_genres (id, genre_code, event_genre)
-        VALUES ($1, $2, $3)`, [index, Number(genre.id), genre.name],
+        VALUES ($1, $2, $3)`, 
+        [index, Number(genreId), genreName],
         (err) => {
           if (err) throw err;
 
@@ -42,13 +44,13 @@ const insertGenres = (json) => {
   });
 };
 
-const getGenres = () => {
-  axios.get(url)
-    .then(response => {
-      insertGenres(response.data);
-    });
-};
+// const getGenres = () => {
+//   axios.get(url)
+//     .then(response => {
+//       insertGenres(response.data);
+//     });
+// };
+// 
+// insertGenres(genreData);
 
-insertGenres(genreData);
-
-// module.exports = getGenres;
+module.exports = insertGenres;

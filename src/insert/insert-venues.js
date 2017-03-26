@@ -3,18 +3,10 @@ if (env === 'development') {
   require('dotenv').config();  
 }
 
-// NOTE: ---------- Use correct location file -------------
-// const locationData = require('../utilities/get-Venues');
-// console.log(JSON.stringify(locationData));
-// NOTE: ---------- Use correct location file -------------
-
 const venueData = require('../data/eventbrite/json-data/venue-data.json').venues;
-
 const axios = require('axios');
-
 const pg = require('pg');
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
-
 const client = new pg.Client(connectionString);
 
 client.connect();
@@ -52,5 +44,5 @@ const insertVenues = venues => {
 
 // insertVenues(venueData);
 
-// module.exports = getVenues;
+module.exports = insertVenues;
 

@@ -107,19 +107,12 @@ events.forEach((eb_event, index) => {
       if (err) throw err;
       
       const genreId = result1.rows[0].id;
-      // console.log('Genre id: ', result1.rows[0].id);
-      // let genreKey = result1.rows[0].id;
-      // console.log('Genre results: ', genreKey);
 
       client.query(`SELECT id FROM event_venues WHERE venue_name = $1`, [venueName], 
         (err, result2) => {
           if (err) throw err;
           
-          console.log('Venue id: ', result2.rows[0]);
           const venueId = !result2.rows ? 0 : result2.rows[0].id;
-
-          // let locationKey = result2.rows[0].id;
-          // console.log('Location results: ', locationKey);
 
           client.query(
             
