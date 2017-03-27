@@ -30,7 +30,7 @@ CREATE TABLE events (
   event_end_time_local TEXT NULL DEFAULT NULL, -- Event local end time
   event_venue INTEGER NULL DEFAULT NULL, -- Event venue _foreign key_
   event_logo_url TEXT NULL DEFAULT NULL, -- Event logo url
-  event_logo_aspect_ration TEXT NULL DEFAULT NULL, -- Event logo aspect ratio
+  event_logo_aspect_ratio TEXT NULL DEFAULT NULL, -- Event logo aspect ratio
   event_logo_edge_color TEXT NULL DEFAULT NULL, -- Event logo edge color
   event_url TEXT NULL DEFAULT NULL, -- Event url
   event_peformer TEXT NULL DEFAULT NULL -- Event performer
