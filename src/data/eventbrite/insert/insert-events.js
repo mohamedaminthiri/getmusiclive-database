@@ -14,7 +14,7 @@ const {
 } = require('../constants');
 
 
-// Pass in 'genre'
+// Pass in 'genre', creates and returns an 'id' query from the table
 const getGenreId = genreName => {  
   const genreQuery = client.query(
     `${SELECT} ${ID} ${FROM} ${EVENT_GENRES} ${WHERE} ${EVENT_GENRE} = $1`, 
