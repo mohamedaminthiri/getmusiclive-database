@@ -3,6 +3,8 @@ const events2 = require('../json-data/eb-events-2-fomatted.json').events;
 const { 
   client, createValuesParams, pg_constants 
 } = require('../../../../database/index');
+
+const { INSERT_INTO, FROM, WHERE, VALUES, SELECT } = pg_constants;
 const {
   EVENT_GENRES, EVENT_VENUES, VENUE_NAME, ID, EVENT_ID, EVENT_TITLE, 
   EVENT_DESCRIPTION_LONG, EVENT_DESCRIPTION_SHORT, EVENT_GENRE,
@@ -11,38 +13,30 @@ const {
   EVENT_LOGO_EDGE_COLOR, EVENT_URL, EVENT_PERFORMER, EVENTS
 } = require('../constants');
 
+
 // Pass in 'genre'
 const getGenreId = genreName => {  
   const genreQuery = client.query(
-    `SELECT ${ID} FROM ${EVENT_GENRES} WHERE ${EVENT_GENRE} = $1`, [genreName]
+    `${SELECT} ${ID} ${FROM} ${EVENT_GENRES} ${WHERE} ${EVENT_GENRE} = $1`, 
+    [genreName]
   );
   
   genreQuery.on('error', error => console.error(error));
   
   return genreQuery;
-  // return genreQuery.on('end', res => callback(res));
 };
 
-// Pass in venue
-const getVenueId = (venueName, callback) => {
-  // { ID, EVENT_VENUES, VENUE_NAME } = constants;
-  
+// Pass in venue and optional callback to create the genreId query
+const getVenueId = (venueName, callback) => {  
   const venueQuery = client.query(
-    `SELECT ${ID} FROM ${EVENT_VENUES} WHERE ${VENUE_NAME} = $1`, [venueName]
+    `${SELECT} ${ID} ${FROM} ${EVENT_VENUES} ${WHERE} ${VENUE_NAME} = $1`, 
+    [venueName]
   );
-  
+    
   venueQuery.on('error', err => console.error(err));
   
-  // venueQuery.on('end', res => callback(res));
   return venueQuery;
 };
-
-// Creates value parameters string
-// const createValuesParams = count => {
-//   const { VALUES } = pg_constants;
-//   
-//   return `${VALUES} (${createParamsStr(count)})`;
-// };
 
 // Creates query insert string
 const createEventsInsert = () => {
@@ -80,7 +74,7 @@ const createEventQuery = (ebEvent, index, genreId, venueId) => {
 };
 
 // Pass in an event object and index, returns a query
-const insertEventsQuery = (ebEvent, index) => {
+const insertEventsQuery = (ebEvent, index, callback = null) => {
   const { genre, venueName } = ebEvent;
   
   let genreId = 0;
@@ -100,72 +94,27 @@ const insertEventsQuery = (ebEvent, index) => {
           
           createEventQuery(ebEvent, index, genreId, venueId)
             .on('end', eventsRes => {
-              console.log('Events inserted!!!');
+              if (callback) {
+                callback(eventRes);
+              } else {
+                console.log('Events inserted!!!');                
+              }              
+              // console.log('Events response: ', eventsRes);              
             });
         });
     });
   
 };
 
-// 
-const insertEvents = events => {
+// Pass in the events array to insert the events into the DB
+const insertEvents = (events, callback = null) => {
   events.forEach((eb_event, index) => {
     insertEventsQuery(eb_event, index);    
   });
 };
 
-insertEvents(events2);
-// 
-// events2.forEach((eb_event, index) => {
-//   const { 
-//     id, name, descriptionLong, descriptionShort, genre, startTimeZone,
-//     startLocal, endTimeZone, endLocal, venueName, logoUrl, logoAspectRatio,
-//     logoEdgeColor, event_url, performer
-//   } = eb_event;  
-//   
-//   client.query(`SELECT id FROM event_genres WHERE event_genre = $1`, [genre], 
-//     (err, result1) => {
-//       if (err) throw err;
-//       
-//       const genreId = result1.rows[0].id;
-//       console.log('Venue name: ', venueName);
-//       client.query(`SELECT id FROM event_venues WHERE venue_name = $1`, [venueName], 
-//         (err, result2) => {
-//           if (err) throw err;
-// 
-//           const venueId = !result2.rows || !result2.rows[0] ? 0 : result2.rows[0].id;
-// 
-//           client.query(
-//             
-//             `INSERT INTO events (
-//               id, event_id, event_title, event_description_long,
-//               event_description_short, event_genre, event_start_timezone,
-//               event_start_time_local, event_end_timezone, event_end_time_local,
-//               event_venue, event_logo_url, event_logo_aspect_ratio,
-//               event_logo_edge_color, event_url, event_peformer
-//             )
-//             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`, 
-//             [
-//               index, id, name, descriptionLong, descriptionShort, genreId,
-//               startTimeZone, startLocal, endTimeZone, endLocal, venueId,
-//               logoUrl, logoAspectRatio, logoEdgeColor, event_url, performer
-//             ],
-//             (err) => {
-//               if (err) throw err;
-// 
-//             }            
-//           );
-//         }
-//       );
-//     }
-//   );
-// });
-// 
-// client.on('end', (err, result) => {
-//   if (err) console.log(err);
-// 
-//   console.log('Query results: ', result);
-//   client.end();
-// });
-// 
-// 
+// insertEvents(events2);
+
+const insertEventsMiddileware = events => (req, res) => {
+  insertEvents(events);
+};
