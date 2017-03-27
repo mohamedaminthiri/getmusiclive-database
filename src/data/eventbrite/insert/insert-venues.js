@@ -4,13 +4,7 @@ if (env === 'development') {
 }
 
 const venueData = require('../json-data/venue-data.json').venues;
-const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
-const client = new pg.Client(connectionString);
-
-client.connect();
-
-// ---------- Create module for the above ---------------
+const client = require('../../../../database/pg-connector');
 
 const insertVenues = venues => {
   venues

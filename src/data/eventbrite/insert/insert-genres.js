@@ -1,6 +1,5 @@
-require('dotenv')
-.config({path: '/Users/Martial-One/Desktop/Coding/currentsoundglom/getmusiclive/.env'});
 const env = process.env.NODE_ENV || 'development';
+
 if (env === 'development') {
   require('dotenv')
   .config({path: '/Users/Martial-One/Desktop/Coding/currentsoundglom/getmusiclive/.env'});
@@ -8,17 +7,16 @@ if (env === 'development') {
 
 const axios = require('axios');
 const genreData = require('../data/eventbrite/eb-genres.json');
+const client = require('../../../../database/pg-connector');
 
-const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
-
-const client = new pg.Client(connectionString);
-client.connect();
+// ----------- Eventbrite Request Stuff --------------
 
 const EVENTBRITE_KEY = process.env.EVENTBRITE_KEY;
 const EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/categories/103/?token=';
 const url = `${EVENTBRITE_URL}${EVENTBRITE_KEY}`;
 console.log(url);
+
+// ----------- Eventbrite Request Stuff --------------
 
 const insertGenres = (json) => {
   json.subcategories
