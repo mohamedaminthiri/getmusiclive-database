@@ -1,9 +1,7 @@
 const pgClient = require('../../database/pg-connector');
 
-
-pgClient.connect();
 const fetchEvents = (req, res) => {
-  console.log('Connecting');
+  console.log('Getting all events');
 
   const query = pgClient.query('SELECT * FROM events');
   

@@ -1,23 +1,13 @@
 const events = require('../json-data/formatted-events.json').events;
 const events2 = require('../json-data/eb-events-2-fomatted.json').events;
-const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/getmusiclive';
+const client = require('../../../../database/pg-connector');
 
-const client = new pg.Client(connectionString);
-client.connect();
-
-events2.forEach((eb_event, index) => {
-  // console.log(event.subcategory_id);
-  // let genre = event.subcategory_id;
-  // let location = event.venue.address.city;
-  
+events2.forEach((eb_event, index) => {  
   const { 
     id, name, descriptionLong, descriptionShort, genre, startTimeZone,
     startLocal, endTimeZone, endLocal, venueName, logoUrl, logoAspectRatio,
     logoEdgeColor, event_url, performer
-  } = eb_event;
-  
-  
+  } = eb_event;  
   
   client.query(`SELECT id FROM event_genres WHERE event_genre = $1`, [genre], 
     (err, result1) => {
@@ -28,7 +18,7 @@ events2.forEach((eb_event, index) => {
       client.query(`SELECT id FROM event_venues WHERE venue_name = $1`, [venueName], 
         (err, result2) => {
           if (err) throw err;
-          // console.log('Venue rows: ', result2);
+
           const venueId = !result2.rows || !result2.rows[0] ? 0 : result2.rows[0].id;
 
           client.query(
