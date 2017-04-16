@@ -1,0 +1,14 @@
+# version: '3'
+# services:
+#   db:
+#     image: postgres
+#   getmusiclive-database:
+#     build: .
+#     ports:
+#       - 3350:3350
+#     links:
+#       - db
+#     environment:
+#       - PGHOST=db
+#       - PGDATABASE=getmusiclive
+#       - PGUSER=Martial-One

@@ -1,6 +1,7 @@
 const env = process.env.NODE_ENV || 'development';
+
 if (env === 'development') {
-  require('dotenv').config();  
+  require('dotenv').config();
 }
 
 const venueData = require('../json-data/venue-data.json').venues;
@@ -16,16 +17,15 @@ const insertVenues = venues => {
           id, venue_name, venue_address, venue_city, venue_state, venue_zip, 
           venue_country, venue_latitude, venue_longitude
         )
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`, 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
         [
           index, name, street, city, state, zip, country, latitude, longitude
         ],
         (err) => {
           if (err) throw err;
-
-        }            
+        }
       );
-      
+
       client.on('end', (err, result) => {
         if (err) console.log(err);
 
@@ -33,11 +33,8 @@ const insertVenues = venues => {
         client.end();
       });
     });
-
-  
 };
 
 insertVenues(venueData);
 
 module.exports = insertVenues;
-
