@@ -26,12 +26,12 @@ const insertVenues = venues => {
         }
       );
 
-      client.on('end', (err, result) => {
-        if (err) console.log(err);
-
-        console.log('Query results: ', result);
-        client.end();
-      });
+      // client.on('end', (err, result) => {
+      //   if (err) console.log(err);
+      // 
+      //   console.log('Query results: ', result);
+      //   client.end();
+      // });
     });
 };
 
