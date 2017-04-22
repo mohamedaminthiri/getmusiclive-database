@@ -6,7 +6,7 @@ if (env === 'development') {
 }
 
 // const axios = require('axios');
-const genreData = require('../json-data/eb-genres.json');
+const { subcategories: genres } = require('../json-data/eb-genres.json');
 const client = require('../../../../database/pg-connector');
 
 // console.log(client);
@@ -19,38 +19,34 @@ const client = require('../../../../database/pg-connector');
 
 // ----------- Eventbrite Request Stuff --------------
 
-const insertGenres = (json) => {
-  json.subcategories
-    .forEach((genre, index) => {
-      const { id: genreId, name: genreName } = genre;
+// Create a genre insert query and return a resolver
+const createGenreQuery = (genreObj, index) => {
+  const { id: genreId, name: genreName } = genreObj;
 
-      client.query(
-        `INSERT INTO event_genres (id, genre_code, event_genre)
-        VALUES ($1, $2, $3)`,
-        [index, Number(genreId), genreName],
+  const genreInsert = client.query(
+    `INSERT INTO event_genres (id, genre_code, event_genre)
+    VALUES ($1, $2, $3)`,
+    [
+      index, Number(genreId), genreName
+    ]
+  );
 
-        (err) => {
-          console.log('Got something here');
-          if (err) throw err;
-        }
-      );
+  genreInsert.on('error', err => console.error(err));
+
+  return genreInsert;
+};
+
+// Takes in a genres array and inserts each genre into the DB
+const insertGenres = genres => {
+  genres.forEach((genre, index) => {
+    const insertGenre = createGenreQuery(genre, index);
+
+    insertGenre.on('end', eventsRes => {
+      console.log('Genre inserted!!!');
     });
-
-  client.on('end', (err, result) => {
-    if (err) console.log(err);
-
-    console.log('Query results: ', result);
-    client.end();
   });
 };
 
-// const getGenres = () => {
-//   axios.get(url)
-//     .then(response => {
-//       insertGenres(response.data);
-//     });
-// };
-//
-insertGenres(genreData);
+insertGenres(genres);
 
 module.exports = insertGenres;
