@@ -12,4 +12,6 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 5005
-CMD ["npm", "run", "insertEvents"]
+CMD ["npm", "run", "insertGenres"]
+# CMD ["npm", "run", "insertVenues"]
+# CMD ["npm", "run", "insertEvents"]
