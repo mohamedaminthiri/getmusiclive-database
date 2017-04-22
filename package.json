@@ -10,6 +10,7 @@
     "getLocations": "node src/data/eventbrite/utilities/get-locations.js",
     "insertEvents": "node src/data/eventbrite/insert/insert-events.js",
     "insertGenres": "node src/data/eventbrite/insert/insert-genres.js",
+    "insertEbData": "node src/data/eventbrite/insert/insert-eb-data.js",
     "serve": "node server/server.js"
   },
   "keywords": [],

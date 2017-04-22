@@ -6,51 +6,39 @@ if (env === 'development') {
 }
 
 // const axios = require('axios');
-const genreData = require('../json-data/eb-genres.json');
+const { subcategories: genres } = require('../json-data/eb-genres.json');
 const client = require('../../../../database/pg-connector');
 
-// console.log(client);
-// ----------- Eventbrite Request Stuff --------------
+// Create a genre insert query and return a resolver
+const createGenreQuery = (genreObj, index) => {
+  const { id: genreId, name: genreName } = genreObj;
 
-// const EVENTBRITE_KEY = process.env.EVENTBRITE_KEY;
-// const EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/categories/103/?token=';
-// const url = `${EVENTBRITE_URL}${EVENTBRITE_KEY}`;
-// console.log(url);
+  const genreInsert = client.query(
+    `INSERT INTO event_genres (id, genre_code, event_genre)
+    VALUES ($1, $2, $3)`,
+    [
+      index, Number(genreId), genreName
+    ]
+  );
 
-// ----------- Eventbrite Request Stuff --------------
+  genreInsert.on('error', err => console.error(err));
 
-const insertGenres = (json) => {
-  json.subcategories
-    .forEach((genre, index) => {
-      const { id: genreId, name: genreName } = genre;
+  return genreInsert;
+};
 
-      client.query(
-        `INSERT INTO event_genres (id, genre_code, event_genre)
-        VALUES ($1, $2, $3)`,
-        [index, Number(genreId), genreName],
+// Takes in a genres array and inserts each genre into the DB
+const insertGenres = (genres, callback = null) => {
+  genres.forEach((genre, index) => {
+    const insertGenre = createGenreQuery(genre, index);
 
-        (err) => {
-          console.log('Got something here');
-          if (err) throw err;
-        }
-      );
+    insertGenre.on('end', eventsRes => {
+      if (callback) callback();
+
+      console.log('Genre inserted!!!');
     });
-
-  client.on('end', (err, result) => {
-    if (err) console.log(err);
-
-    console.log('Query results: ', result);
-    client.end();
   });
 };
 
-// const getGenres = () => {
-//   axios.get(url)
-//     .then(response => {
-//       insertGenres(response.data);
-//     });
-// };
-//
-insertGenres(genreData);
+// insertGenres(genres);
 
 module.exports = insertGenres;

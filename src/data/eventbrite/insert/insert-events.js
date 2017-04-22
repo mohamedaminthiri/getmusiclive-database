@@ -1,7 +1,7 @@
 // const events = require('../json-data/formatted-events.json').events;
 const events2 = require('../json-data/eb-events-2-fomatted.json').events;
 const {
-  client, createValuesParams, pg_constants: pgConstants
+  client, createValuesParams, pgConstants
 } = require('../../../../database/index');
 
 const { INSERT_INTO, FROM, WHERE, SELECT } = pgConstants;
@@ -51,8 +51,8 @@ const createEventsInsert = () => {
 // Creates the event query and returns the query to be resolved
 const createEventQuery = (ebEvent, index, genreId, venueId) => {
   const {
-    id, name, descriptionLong, descriptionShort, genre, startTimeZone,
-    startLocal, endTimeZone, endLocal, venueName, logoUrl, logoAspectRatio,
+    id, name, descriptionLong, descriptionShort, startTimeZone,
+    startLocal, endTimeZone, endLocal, logoUrl, logoAspectRatio,
     logoEdgeColor, event_url, performer
   } = ebEvent;
 
@@ -96,7 +96,6 @@ const insertEventsQuery = (ebEvent, index, callback = null) => {
               } else {
                 console.log('Events inserted!!!');
               }
-              // console.log('Events response: ', eventsRes);
             });
         });
     });
@@ -104,13 +103,15 @@ const insertEventsQuery = (ebEvent, index, callback = null) => {
 
 // Pass in the events array to insert the events into the DB
 const insertEvents = (events, callback = null) => {
-  events.forEach((eb_event, index) => {
-    insertEventsQuery(eb_event, index);
+  events.forEach((ebEvent, index) => {
+    insertEventsQuery(ebEvent, index);
   });
 };
 
-insertEvents(events2);
+// insertEvents(events2)();
 
-const insertEventsMiddileware = events => (req, res) => {
-  insertEvents(events);
-};
+// const insertEventsMiddileware = events => (req, res) => {
+//   insertEvents(events);
+// };
+
+module.exports = insertEvents;
