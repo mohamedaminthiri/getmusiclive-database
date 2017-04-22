@@ -18,7 +18,8 @@ const createVenueQuery = (venueObj, index) => {
       id, venue_name, venue_address, venue_city, venue_state, venue_zip, 
       venue_country, venue_latitude, venue_longitude
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    RETURNING id`,
     [
       index, name, street, city, state, zip, country, latitude, longitude
     ]
@@ -30,16 +31,18 @@ const createVenueQuery = (venueObj, index) => {
 };
 
 // Insert venue data into the DB
-const insertVenues = venues => {
+const insertVenues = (venues, callback = null) => {
   venues.forEach((venue, index) => {
     const insertVenue = createVenueQuery(venue, index);
 
     insertVenue.on('end', eventsRes => {
+      if (callback) callback();
+
       console.log('Venue inserted!!!');
     });
   });
 };
 
-insertVenues(venueData);
+// insertVenues(venueData);
 
 module.exports = insertVenues;

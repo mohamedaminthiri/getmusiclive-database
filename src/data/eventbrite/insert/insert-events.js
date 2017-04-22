@@ -96,7 +96,6 @@ const insertEventsQuery = (ebEvent, index, callback = null) => {
               } else {
                 console.log('Events inserted!!!');
               }
-              // console.log('Events response: ', eventsRes);
             });
         });
     });
@@ -109,7 +108,7 @@ const insertEvents = (events, callback = null) => {
   });
 };
 
-// insertEvents(events2);
+// insertEvents(events2)();
 
 // const insertEventsMiddileware = events => (req, res) => {
 //   insertEvents(events);

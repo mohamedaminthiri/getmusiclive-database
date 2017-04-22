@@ -13,7 +13,7 @@ COPY . /usr/src/app
 
 EXPOSE 5005
 
-CMD ["npm", "run", "insertGenres"]
+CMD ["npm", "run", "insertEbData"]
 
 # Curretly the below commands need to be run from inside the container
 # CMD ["npm", "run", "insertVenues"]

@@ -9,16 +9,6 @@ if (env === 'development') {
 const { subcategories: genres } = require('../json-data/eb-genres.json');
 const client = require('../../../../database/pg-connector');
 
-// console.log(client);
-// ----------- Eventbrite Request Stuff --------------
-
-// const EVENTBRITE_KEY = process.env.EVENTBRITE_KEY;
-// const EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/categories/103/?token=';
-// const url = `${EVENTBRITE_URL}${EVENTBRITE_KEY}`;
-// console.log(url);
-
-// ----------- Eventbrite Request Stuff --------------
-
 // Create a genre insert query and return a resolver
 const createGenreQuery = (genreObj, index) => {
   const { id: genreId, name: genreName } = genreObj;
@@ -37,16 +27,18 @@ const createGenreQuery = (genreObj, index) => {
 };
 
 // Takes in a genres array and inserts each genre into the DB
-const insertGenres = genres => {
+const insertGenres = (genres, callback = null) => {
   genres.forEach((genre, index) => {
     const insertGenre = createGenreQuery(genre, index);
 
     insertGenre.on('end', eventsRes => {
+      if (callback) callback();
+
       console.log('Genre inserted!!!');
     });
   });
 };
 
-insertGenres(genres);
+// insertGenres(genres);
 
 module.exports = insertGenres;
