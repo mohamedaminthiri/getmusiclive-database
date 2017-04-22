@@ -1,10 +1,10 @@
 // const events = require('../json-data/formatted-events.json').events;
 const events2 = require('../json-data/eb-events-2-fomatted.json').events;
 const {
-  client, createValuesParams, pg_constants
+  client, createValuesParams, pg_constants: pgConstants
 } = require('../../../../database/index');
 
-const { INSERT_INTO, FROM, WHERE, VALUES, SELECT } = pg_constants;
+const { INSERT_INTO, FROM, WHERE, SELECT } = pgConstants;
 const {
   EVENT_GENRES, EVENT_VENUES, VENUE_NAME, ID, EVENT_ID, EVENT_TITLE,
   EVENT_DESCRIPTION_LONG, EVENT_DESCRIPTION_SHORT, EVENT_GENRE,
