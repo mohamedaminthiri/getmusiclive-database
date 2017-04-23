@@ -5,7 +5,7 @@ services:
     # image: shinobi881/getmusiclive-db-container:latest
     build: ../getmusiclive-db-container
     volumes: 
-      - ../getmusiclive-db-container:/usr/src/app
+      - ./:/usr/src/app
     ports:
       - 6000:5432
   db-middleware:
@@ -19,3 +19,4 @@ services:
       - db-container
     depends_on:
       - db-container
+    command: ["./wait-for-it.sh", "db-container:5432", "--", "npm run insertEbData"]
