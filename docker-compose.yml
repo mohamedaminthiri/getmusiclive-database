@@ -1,14 +1,21 @@
-# version: '3'
-# services:
-#   db:
-#     image: postgres
-#   getmusiclive-database:
-#     build: .
-#     ports:
-#       - 3350:3350
-#     links:
-#       - db
-#     environment:
-#       - PGHOST=db
-#       - PGDATABASE=getmusiclive
-#       - PGUSER=Martial-One
+version: '3'
+
+services:
+  db-container:
+    # image: shinobi881/getmusiclive-db-container:latest
+    build: ../getmusiclive-db-container
+    volumes: 
+      - ../getmusiclive-db-container:/usr/src/app
+    ports:
+      - 6000:5432
+  db-middleware:
+    # image: shinobi881/getmusiclive-database:latest
+    build: ./
+    volumes: 
+      - ./:/usr/src/app
+    ports:
+      - 5010:5005
+    links:
+      - db-container
+    depends_on:
+      - db-container
