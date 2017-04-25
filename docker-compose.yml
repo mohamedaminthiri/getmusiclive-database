@@ -2,15 +2,15 @@ version: '3'
 
 services:
   db-container:
-    # image: shinobi881/getmusiclive-db-container:latest
-    build: ../getmusiclive-db-container
-    volumes: 
-      - ./:/usr/src/app
+    image: shinobi881/getmusiclive-db-container:latest
+    # build: ../getmusiclive-db-container
+    # volumes: 
+    #   - ./:/usr/src/app
     ports:
       - 6000:5432
   db-middleware:
-    # image: shinobi881/getmusiclive-database:latest
-    build: ./
+    image: shinobi881/getmusiclive-database:latest
+    # build: ./
     volumes: 
       - ./:/usr/src/app
     ports:
