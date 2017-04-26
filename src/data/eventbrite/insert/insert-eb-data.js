@@ -8,6 +8,10 @@ const { subcategories: genres } = require('../json-data/eb-genres.json');
 const { events } = require('../json-data/eb-events-2-fomatted.json');
 const { venues } = require('../json-data/venue-data.json');
 
-insertGenres(genres);
-insertVenues(venues);
-insertEvents(events);
+module.exports = () => {
+  insertGenres(genres);
+  insertVenues(venues);
+  insertEvents(events);
+  
+  return 'inserted';
+};
