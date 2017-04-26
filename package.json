@@ -11,7 +11,9 @@
     "insertEvents": "node src/data/eventbrite/insert/insert-events.js",
     "insertGenres": "node src/data/eventbrite/insert/insert-genres.js",
     "insertEbData": "node src/data/eventbrite/insert/insert-eb-data.js",
-    "serve": "node server/server.js"
+    "serve": "node server/server.js",
+    "lint": "eslint **/*.js",
+    "eslint": "LIST=`git diff-index --name-only HEAD | grep .*\\.js | grep -v json`; if [ \"$LIST\" ]; then eslint $LIST; fi"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,11 @@
     "pg": "^6.1.4"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0"
+    "dotenv": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
   }
 }

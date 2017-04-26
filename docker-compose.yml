@@ -2,20 +2,36 @@ version: '3'
 
 services:
   db-container:
-    # image: shinobi881/getmusiclive-db-container:latest
-    build: ../getmusiclive-db-container
-    volumes: 
-      - ../getmusiclive-db-container:/usr/src/app
+    image: shinobi881/getmusiclive-db-container:latest
     ports:
       - 6000:5432
+  
   db-middleware:
-    # image: shinobi881/getmusiclive-database:latest
-    build: ./
+    image: shinobi881/getmusiclive-database:latest
     volumes: 
       - ./:/usr/src/app
     ports:
-      - 5010:5005
+      - 5010:80
     links:
       - db-container
     depends_on:
       - db-container
+    command: ["./wait-for-it.sh", "db-container:5432", "--", "npm run serve"]
+    
+  getmusiclive-server:
+    image: shinobi881/getmusiclive-server:latest
+    ports:
+      - 5005:80 # must map server port to 80
+    links:
+      - db-middleware
+    depends_on:
+      - db-middleware
+
+  getmusiclive-client:
+    image: shinobi881/getmusiclive-client:latest
+    ports: 
+      - 5006:5001
+    links:
+      - getmusiclive-server
+    depends_on:
+      - getmusiclive-server
