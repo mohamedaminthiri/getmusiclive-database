@@ -19,8 +19,6 @@ services:
     
   getmusiclive-server:
     image: shinobi881/getmusiclive-server:latest
-    ports:
-      - 5005:80 # must map server port to 80
     links:
       - db-middleware
     depends_on:
