@@ -12,6 +12,6 @@ module.exports = () => {
   insertGenres(genres);
   insertVenues(venues);
   insertEvents(events);
-  
+
   return 'inserted';
 };
