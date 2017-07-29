@@ -12,8 +12,10 @@
     "insertGenres": "node src/data/eventbrite/insert/insert-genres.js",
     "insertEbData": "node src/data/eventbrite/insert/insert-eb-data.js",
     "serve": "node server/server.js",
+    "serve:req": "node src/data/eventbrite/utilities/request.js",
     "lint": "eslint **/*.js",
-    "eslint": "LIST=`git diff-index --name-only HEAD | grep .*\\.js | grep -v json`; if [ \"$LIST\" ]; then eslint $LIST; fi"
+    "eslint": "LIST=`git diff-index --name-only HEAD | grep .*\\.js | grep -v json`; if [ \"$LIST\" ]; then eslint $LIST; fi",
+    "prettier": "prettier --single-quote --write \"./src/data/eventbrite/utilities/get-locations.js\""
   },
   "keywords": [],
   "author": "",
@@ -30,6 +32,7 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.10.3",
+    "prettier": "^1.5.3"
   }
 }

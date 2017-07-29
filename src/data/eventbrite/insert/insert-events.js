@@ -1,5 +1,5 @@
 // const events = require('../json-data/formatted-events.json').events;
-const events2 = require('../json-data/eb-events-2-fomatted.json').events;
+// const events2 = require('../json-data/eb-events-2-fomatted.json').events;
 const {
   client, createValuesParams, pgConstants
 } = require('../../../../database/index');
@@ -14,7 +14,7 @@ const {
 } = require('../constants');
 
 // Pass in 'genre', creates and returns an 'id' query from the table
-const getGenreId = genreName => {
+const getGenreId = (genreName) => {
   const genreQuery = client.query(
     `${SELECT} ${ID} ${FROM} ${EVENT_GENRES} ${WHERE} ${EVENT_GENRE} = $1`,
     [genreName]
