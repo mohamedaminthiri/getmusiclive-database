@@ -62,7 +62,8 @@ exports.getLocations = (eventsRes) => {
   const venueHash = getVenueSet(locs);
   const uniqueVenueList = createUniqueVenueList(locs, venueHash);
 
-  return JSON.stringify(uniqueVenueList);
+  // return JSON.stringify(uniqueVenueList);
+  return uniqueVenueList;
 };
 
 // console.log(

@@ -3,6 +3,8 @@ const { get: axiosGet } = require('axios');
 const { range } = require('lodash');
 const { getLocations } = require('./get-locations');
 const { eventsFormat } = require('./format-events');
+const insertEvents = require('../insert/insert-events');
+const insertVenues = require('../insert/insert-venues');
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -36,16 +38,35 @@ const paginationRequest = ({ page_count: pageCount }) => {
 
 eventbriteReq
   .then(({ data }) => {
-    const { events, pagination } = data;
+    const { events: firstEvents, pagination } = data;
     const pages = Promise.all(paginationRequest(pagination));
 
-    pages.then(values => console.log(values[0].data.events));
+    pages.then((values) => {
+      // console.log(values[0].data.events[0]);
+      const reducedValues = values.reduce((accEvents, pagedRes) => {
+        const { data: { events: pagedEvents } } = pagedRes;
+        const mergedEvents = accEvents.concat(pagedEvents);
+
+        return mergedEvents;
+      }, []).concat(firstEvents);
+
+      // console.log('Formatted Events: ', eventsFormat(reducedValues));
+      // console.log('Event locations: ', getLocations(reducedValues));
+
+      // insertVenues(getLocations(reducedValues));
+      // insertVenues(getLocations(reducedValues));
+      return eventsFormat(reducedValues);
+    }).then((res) => {
+      insertEvents(res);
+      // console.log('the finally block', res[0]);
+      console.log('We\'re all done'.toUpperCase());
+    });
     // console.log('Formatted events: ', eventsFormat(events)[0]);
     // console.log('Locations: ', getLocations(events));
   }).catch(err => console.log('ERROR!!! ', err));
 
 
-// 
+//
 // // Pass in the formatted events Array
 // const repeatRequest = (stuff, arr) => {
 //   // console.log('Logging', stuff);
