@@ -1,26 +1,22 @@
 /* eslint no-console: 0 */
 const { get: axiosGet } = require('axios');
 const { range } = require('lodash');
-const { getLocations } = require('./get-locations');
-const { eventsFormat } = require('./format-events');
-const insertEvents = require('../insert/insert-events');
-const insertVenues = require('../insert/insert-venues');
+const { getLocations, eventsFormat } = require('./index');
+const { insertEvents, insertVenues, insertGenres } = require('../insert/index');
 
+console.log('TEST: ', getLocations, eventsFormat);
 const env = process.env.NODE_ENV || 'development';
+const { EVENTBRITE_URL, PAGE, DEV_ENV } = require('../constants');
 
-if (env === 'development') {
+/* fallback for pulling in environmental variables */
+if (env === DEV_ENV) {
   console.log('Dev environment');
   // eslint-disable-next-line global-require
   require('dotenv').config();
 }
-// const dataFormat = require('./data-format.js');
-// const getLocations = require('../../../database/insert/insert-locations');
 
+/* Eventbrite URL's */
 const EVENTBRITE_KEY = `&token=${process.env.EVENTBRITE_KEY}`;
-const SEARCH_URL = '?sort_by=date&location.address=1451+7th+St%2C+Oakland%2C+CA+94607&location.within=50mi&categories=103&start_date.keyword=this_month&expand=venue';
-const BASE_URL = 'https://www.eventbriteapi.com/v3/events/search/';
-const EVENTBRITE_URL = `${BASE_URL}${SEARCH_URL}`;
-const PAGE = 'page';
 const eventbrite = `${EVENTBRITE_URL}${EVENTBRITE_KEY}`;
 
 const addQuery = (key, value) => {
@@ -29,6 +25,7 @@ const addQuery = (key, value) => {
   return `${EVENTBRITE_URL}${pair}${EVENTBRITE_KEY}`;
 };
 
+// Eventbrite requests and pagination handlers
 const eventbriteReq = axiosGet(eventbrite);
 const paginationRequest = ({ page_count: pageCount }) => {
   const reqs = range(2, pageCount + 1);
@@ -36,13 +33,21 @@ const paginationRequest = ({ page_count: pageCount }) => {
   return reqs.map(count => axiosGet(addQuery(PAGE, count)));
 };
 
+// Not yet sure if I still need this
+// const insertEventsCallback = ebEvents => () => insertEvents(ebEvents);
+
+// insert event genres then make the Eventbrite request
+insertGenres();
 eventbriteReq
   .then(({ data }) => {
+    // Pull out the first event and the pagination object
     const { events: firstEvents, pagination } = data;
+
+    // Create the pagination promises or paginated requests
     const pages = Promise.all(paginationRequest(pagination));
 
     pages.then((values) => {
-      // console.log(values[0].data.events[0]);
+      // Reduce all the events into one object and add the first set of events
       const reducedValues = values.reduce((accEvents, pagedRes) => {
         const { data: { events: pagedEvents } } = pagedRes;
         const mergedEvents = accEvents.concat(pagedEvents);
@@ -50,79 +55,13 @@ eventbriteReq
         return mergedEvents;
       }, []).concat(firstEvents);
 
-      // console.log('Formatted Events: ', eventsFormat(reducedValues));
-      // console.log('Event locations: ', getLocations(reducedValues));
+      // Get the locations and format the events from the reduced events
+      const venues = getLocations(reducedValues);
+      const formattedEvents = eventsFormat(reducedValues);
 
-      // insertVenues(getLocations(reducedValues));
-      // insertVenues(getLocations(reducedValues));
-      return eventsFormat(reducedValues);
-    }).then((res) => {
-      insertEvents(res);
-      // console.log('the finally block', res[0]);
-      console.log('We\'re all done'.toUpperCase());
-    });
-    // console.log('Formatted events: ', eventsFormat(events)[0]);
-    // console.log('Locations: ', getLocations(events));
+      // Insert the venues
+      insertVenues(venues);
+
+      return formattedEvents;
+    }).then(eventsData => insertEvents(eventsData));
   }).catch(err => console.log('ERROR!!! ', err));
-
-
-//
-// // Pass in the formatted events Array
-// const repeatRequest = (stuff, arr) => {
-//   // console.log('Logging', stuff);
-//   let pageCount = stuff.pagination.page_count;
-//   const currentPage = stuff.pagination.page_number;
-//   const THIS_DATE = stuff.events[stuff.events.length - 1].start.local;
-//   console.log(THIS_DATE);
-// 
-//   const makeRequest = () => {
-//     pageCount += 1;
-// 
-//     if (currentPage >= pageCount) {
-//       return;
-//     }
-// 
-//     get(url)
-//       .then((res) => {
-//         dataFormat(res.data.events, arr);
-//       })
-//       .then(() => {
-//         makeRequest();
-//       });
-//   };
-//   makeRequest();
-// };
-// 
-// const ebFetch = (arr, other) => {
-//   // console.log(arr[0]);
-//   return (req, res, next) => {
-//     const test1 = (stuff, func) => {
-//       return () => {
-//         func(stuff);
-//       };
-//     };
-// 
-//     get(eventbrite)
-//       .then(response => {
-//         // arr.length = 0;
-//         dataFormat(response.data.events, arr);
-//         return response;
-//       })
-//       .then(that => {
-//         repeatRequest(that.data, arr);
-//       })
-//       .then(() => {
-//         getLocations(arr);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         // next(err);
-//       });
-//     next();
-//   };
-// };
-// 
-// module.exports = {
-//   ebFetch: ebFetch,
-//   repeatRequest: repeatRequest
-// };

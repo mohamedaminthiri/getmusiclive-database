@@ -1,11 +1,4 @@
-const events = require('../json-data/eb-events.json').events;
-const events2Raw = require('../json-data/eb-events-2-raw.json').events;
-
-const locations1 = events.map(({ venue }) => venue);
-const locations2 = events2Raw.map(({ venue }) => venue);
-
 const getVenues = eventsArr => eventsArr.map(({ venue }) => venue);
-// const locs = getVenues(events);
 
 const getVenueSet = (locations) => {
   const venueNames = {};
@@ -18,7 +11,6 @@ const getVenueSet = (locations) => {
 };
 
 const formatLocation = (location) => {
-  // console.log(location);
   const { name, address, longitude, latitude } = location;
   const {
     address_1: street,
@@ -57,18 +49,12 @@ const createUniqueVenueList = (locations, venueHash) => locations.map(formatLoca
     return false;
   });
 
-exports.getLocations = (eventsRes) => {
+const getLocations = (eventsRes) => {
   const locs = getVenues(eventsRes);
   const venueHash = getVenueSet(locs);
   const uniqueVenueList = createUniqueVenueList(locs, venueHash);
 
-  // return JSON.stringify(uniqueVenueList);
   return uniqueVenueList;
 };
 
-// console.log(
-//   JSON.stringify(createUniqueVenueList(locs, getVenueSet(getVenues(events))))
-// );
-
-// module.exports = { createUniqueVenueList, getVenueSet, getVenues };
-// module.exports = createUniqueVenueList(locations, getVenueSet(locations));
+module.exports = getLocations;

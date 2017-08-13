@@ -104,7 +104,11 @@ const insertEventsQuery = (ebEvent, index, callback = null) => {
 // Pass in the events array to insert the events into the DB
 const insertEvents = (events, callback = null) => {
   events.forEach((ebEvent, index) => {
-    insertEventsQuery(ebEvent, index);
+    if (index === events.length - 1) {
+      insertEventsQuery(ebEvent, index, () => process.exit(0));
+    } else {
+      insertEventsQuery(ebEvent, index);
+    }
   });
 };
 

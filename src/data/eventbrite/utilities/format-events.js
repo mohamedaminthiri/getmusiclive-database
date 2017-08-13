@@ -1,13 +1,8 @@
 // const R = require('ramda');
 const { get } = require('axios');
-const { getLocations } = require('./get-locations');
-
-const ebUrl = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&location.address=1451+7th+St%2C+Oakland%2C+CA+94607&location.within=50mi&categories=103&start_date.keyword=this_month&expand=venue&token=MD33DX7LJOIGAGCBYRF7';
 
 // Local genres file
 const genreData = require('../json-data/eb-genres.json').subcategories;
-const eventsData = require('../json-data/eb-events.json').events;
-const eventsData2 = require('../json-data/eb-events-2-raw.json').events;
 
 // Create a short description
 const descrFormat = (descr) => {
@@ -79,4 +74,4 @@ const eventsFormat = events => events.map(event => formatEvents(event));
 // eslint-disable-next-line no-console
 // console.log(JSON.stringify(eventFormat(eventsData2)));
 
-module.exports = { eventsFormat };
+module.exports = eventsFormat;
