@@ -1,106 +1,67 @@
+/* eslint no-console: 0 */
+const { get: axiosGet } = require('axios');
+const { range } = require('lodash');
+const { getLocations, eventsFormat } = require('./index');
+const { insertEvents, insertVenues, insertGenres } = require('../insert/index');
+
+console.log('TEST: ', getLocations, eventsFormat);
 const env = process.env.NODE_ENV || 'development';
-if (env === 'development') {
-  console.log('Dev environment')
-  require('dotenv').config();  
-}
-const axios = require('axios');
-const dataFormat = require('./data-format.js');
-const getLocations = require('../../../database/insert/insert-locations');
-const EVENTBRITE_KEY = process.env.EVENTBRITE_KEY;
-const EVENTBRITE_URL = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&venue.city=San+Francisco&venue.region=CA&categories=103&expand=venue&token=';
-const SEARCH_URL = '?sort_by=date&location.address=1451+7th+St%2C+Oakland%2C+CA+94607&location.within=50mi&venue.region=CA&categories=103&start_date.range_start='
-const BASE = 'https://www.eventbriteapi.com/v3/events/search/';
+const { EVENTBRITE_URL, PAGE, DEV_ENV } = require('../constants');
 
-// const EVENTBRITE_QUERY = {
-//   root: 'https://www.eventbriteapi.com/v3/events/search/',
-//   sort: '?sort_by=date',
-//   city: '&venue.city='
-//   state: '&venue.region=CA',
-//   options: '&categories=103'
-// };
-// 2016-07-08T16%3A00%3A00
+/* fallback for pulling in environmental variables */
+if (env === DEV_ENV) {
+  console.log('Dev environment');
+  // eslint-disable-next-line global-require
+  require('dotenv').config();
+}
+
+/* Eventbrite URL's */
+const EVENTBRITE_KEY = `&token=${process.env.EVENTBRITE_KEY}`;
 const eventbrite = `${EVENTBRITE_URL}${EVENTBRITE_KEY}`;
-const ebNext = ``;
 
-const createQuery = (id, base, key) => {
-  return `${base}${id}${key}`;
-};
-// Pass in the formatted events Array
-const repeatRequest = (stuff, arr) => {
-    // console.log('Logging', stuff);
-    let count = 0;  
-    let page_count = stuff.pagination.page_count;
-    let object_count = stuff.pagination.object_count;
-    let currentPage = stuff.pagination.page_number;
-    let THIS_DATE = stuff.events[stuff.events.length - 1].start.local;
-    console.log(THIS_DATE);
-    
-    const makeRequest = () => {
-      page_count++;
-      if (currentPage >= page_count) {
-        return
-      }
+const addQuery = (key, value) => {
+  const pair = `&${key}=${value}`;
 
-      let url = `${BASE}${SEARCH_URL}&page=${page_count}&token=${EVENTBRITE_KEY}`;
-      axios.get(url)
-        .then((res) => {
-          dataFormat(res.data.events, arr);
-        })
-        .then(() => {
-          makeRequest();
-        });
-    }
-    makeRequest();    
-}
-
-
-
-// const ebFetch2 = (arr, url) => {
-//   return (req, res, next) => {
-//     axios.get(eventbrite)
-//       .then((url) => {
-//         arr.length = 0;
-//         dataFormat(response.data.events, arr);
-//         next(response.data.pagination);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//     next();
-//   };
-// };
-
-
-const ebFetch = (arr, other) => {
-  // console.log(arr[0]);
-  return (req, res, next) => {
-    const test1 = (stuff, func) => {
-      return () => {
-        func(stuff);
-      }
-    }
-
-    axios.get(eventbrite)
-      .then((response) => {
-        // arr.length = 0;
-        dataFormat(response.data.events, arr);
-        return response;
-      })
-      .then((that) => {
-        repeatRequest(that.data, arr);
-      })
-      .then(() => {
-        getLocations(arr);
-      })
-      .catch((err) => {
-        console.log(err);
-        // next(err);
-      });
-      next();
-  };
+  return `${EVENTBRITE_URL}${pair}${EVENTBRITE_KEY}`;
 };
 
-module.exports = {
-  ebFetch: ebFetch,
-  repeatRequest: repeatRequest
+// Eventbrite requests and pagination handlers
+const eventbriteReq = axiosGet(eventbrite);
+const paginationRequest = ({ page_count: pageCount }) => {
+  const reqs = range(2, pageCount + 1);
+
+  return reqs.map(count => axiosGet(addQuery(PAGE, count)));
 };
+
+// Not yet sure if I still need this
+// const insertEventsCallback = ebEvents => () => insertEvents(ebEvents);
+
+// insert event genres then make the Eventbrite request
+insertGenres();
+eventbriteReq
+  .then(({ data }) => {
+    // Pull out the first event and the pagination object
+    const { events: firstEvents, pagination } = data;
+
+    // Create the pagination promises or paginated requests
+    const pages = Promise.all(paginationRequest(pagination));
+
+    pages.then((values) => {
+      // Reduce all the events into one object and add the first set of events
+      const reducedValues = values.reduce((accEvents, pagedRes) => {
+        const { data: { events: pagedEvents } } = pagedRes;
+        const mergedEvents = accEvents.concat(pagedEvents);
+
+        return mergedEvents;
+      }, []).concat(firstEvents);
+
+      // Get the locations and format the events from the reduced events
+      const venues = getLocations(reducedValues);
+      const formattedEvents = eventsFormat(reducedValues);
+
+      // Insert the venues
+      insertVenues(venues);
+
+      return formattedEvents;
+    }).then(eventsData => insertEvents(eventsData));
+  }).catch(err => console.log('ERROR!!! ', err));

@@ -41,4 +41,4 @@ const insertGenres = (genres, callback = null) => {
 
 // insertGenres(genres);
 
-module.exports = insertGenres;
+module.exports = () => insertGenres(genres);
