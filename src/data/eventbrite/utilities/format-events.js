@@ -1,6 +1,3 @@
-// const R = require('ramda');
-const { get } = require('axios');
-
 // Local genres file
 const genreData = require('../json-data/eb-genres.json').subcategories;
 
@@ -27,14 +24,6 @@ const genreMap = arr => arr.reduce((acc, { id, name }) => {
 
   return acc;
 }, {});
-// {
-//   const obj = {};
-//
-//   arr.forEach((genre) => {
-//     obj[genre.id] = genre.name;
-//   });
-//   return obj;
-// };
 
 // Translate genre codes
 const createGenre = (code, obj) => obj[code];
@@ -60,18 +49,5 @@ const formatEvents = event => ({
 
 // Format Eventbrite API data
 const eventsFormat = events => events.map(event => formatEvents(event));
-
-// get(ebUrl)
-//   .then((res) => {
-//     const events = eventsFormat(res.data.events);
-//     // const locs = getVenues(res.data.events);
-//     // console.log('Response: ', locs);
-//     // console.log('Response: ', events);
-//     const locations = getLocations(res.data.events);
-//     console.log('Locations: ', locations);
-//   })
-//   .catch(err => console.log('Error: ', err));
-// eslint-disable-next-line no-console
-// console.log(JSON.stringify(eventFormat(eventsData2)));
 
 module.exports = eventsFormat;

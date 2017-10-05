@@ -1,4 +1,5 @@
 const express = require('express');
+// const schedule = require('node-schedule');
 const fetchEvents = require('./middleware/fetch-events');
 const insertion = require('../src/data/eventbrite/insert/insert-eb-data');
 // const PORT = process.env.PORT || 80; // Setting the port for Docker
@@ -13,6 +14,6 @@ app.get('/events', fetchEvents);
 
 app.listen(PORT, () => {
   /* eslint no-console: 0 */
-  console.log(insertion());
+  // console.log(insertion());
   console.log(`Listening on port ${PORT}`);
 });
