@@ -4,7 +4,6 @@ const { range } = require('lodash');
 const { getLocations, eventsFormat } = require('./index');
 const { insertEvents, insertVenues, insertGenres } = require('../insert/index');
 
-console.log('TEST: ', getLocations, eventsFormat);
 const env = process.env.NODE_ENV || 'development';
 const { EVENTBRITE_URL, PAGE, DEV_ENV } = require('../constants');
 
